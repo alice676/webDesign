@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字聚光燈效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ed833c;
+            width: 100%;
+        }
+
+        .wrap {
+            margin: 20% auto;
+        }
+
+        .title {
+            font-size: 8rem;
+            font-weight: bolder;
+            text-align: center;
+            color: hsla(0, 0%, 100%, 0.08);
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: radial-gradient(closest-side, #fff 100%, transparent 0);
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 300px 300px;
+            /* transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); */
+        }
+
+        @media (max-width: 576px) {
+            .wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                position: relative;
+                margin: 0;
+                padding: 0;
+            }
+
+            .title {
+                font-size: 3rem;
+                color: hsla(0, 0%, 100%, 0.08);
+                background-clip: none;
+                -webkit-background-clip: none;
+                background-image: none;
+                background-position: 0%;
+            }
+
+            .title::before {
+                position: absolute;
+                content: 'Phone Case';
+                font-size: 3rem;
+                color: #fff;
+                clip-path: circle(80px at 0% 50%);
+                animation: spotlight 5s infinite;
+            }
+
+            /* 手機版動畫 */
+            @keyframes spotlight {
+                0% {
+                    clip-path: circle(80px at 0% 50%);
+                }
+                50% {
+                    clip-path: circle(80px at 100% 50%);
+                }
+                100% {
+                    clip-path: circle(80px at 0% 50%);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="title">Phone Case</div>
+    </div>
+    <script>
+        start();
+        // 視窗大小調整時會觸發 resize 事件
+        window.addEventListener('resize', start);
+
+        function start() {
+            
+            var w = Number(document.documentElement.clientWidth);// 判斷螢幕寬度
+            console.log("w=" + w);
+            if (w > 576) {
+                console.log("w > 576");
+                // 觸發滑鼠事件
+                document.addEventListener("mousemove", function (e) {
+                    move(e);
+                }, false
+                );
+            } else {
+                console.log("w < 576");
+            }
+        }
+        // 聚光燈效果
+        function move(e) {
+            const spotlightSize = 300;
+            let titleRect = document.querySelector(".title").getBoundingClientRect();
+            let mouseX = e.clientX;
+            let mouseY = e.clientY;
+            let spotlightX = mouseX - spotlightSize / 2 - titleRect.left;
+            let spotlightY = mouseY - spotlightSize / 2 - titleRect.top;
+            // console.log(spotlightY, spotlightX);
+
+            let title = document.querySelector(".title");
+            title.style.backgroundPosition = spotlightX + "px " + spotlightY + "px";
+        };
+
+    </script>
+</body>
+
+
+</html>

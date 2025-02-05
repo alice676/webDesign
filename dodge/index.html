@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帳密驗證 - 按鈕位移</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .body {
+            width: 500px;
+            height: 400px;
+            border: 1px solid rgb(210, 209, 209);
+            margin: 30px 0 0px 30px;
+
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .box1 {
+            margin-bottom: 15px;
+        }
+
+        #tips {
+            color: red;
+        }
+
+        input[type="button"] {
+            margin: 0 20px;
+            padding: 10px 30px;
+            background-color: rgb(31, 103, 237);
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        #down-box {
+            width: 500px;
+            height: 210px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="content">
+            <div class="box1">
+                <p>帳號:</p>
+                <input type="text" name="" id="account">
+            </div>
+            <div class="box2">
+                <p>密碼:</p>
+                <input type="password" name="" id="pwd">
+            </div>
+            <div id="tips"></div>
+        </div>
+        <div id="down-box">
+            <input type="button" value="登入" id="button">
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

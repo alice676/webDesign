@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Google Sans","Arial",sans-serif,"微軟正黑體";
+}
+
+.box2>img{
+    /* max-width: 100%; */
+    max-width: 100% ;
+}
+
+.box {
+    width: 80%;
+    display: flex;
+    margin: 3% auto;
+    background-color: antiquewhite;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.box1,
+.box2 {
+    width: 50%;
+}
+
+.box1 {
+    padding-left: 90px;
+}
+
+.tittle {
+    margin: 130px 0 30px;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.accordion {
+    border-radius: 30px;
+}
+
+.accordion-item>.accordion-header {
+    margin-bottom: 3px;
+
+}
+
+.accordion-item,
+.accordion-item .accordion-button {
+    background-color: rgb(245, 215, 176) !important;
+}
+
+.accordion-item:first-of-type,
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+
+}
+
+.accordion-item:last-of-type,
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+.accordion-item {
+    width: 80%;
+    background-color: #f8f9fa !important;
+    border: none !important;
+
+}
+
+.accordion-button {
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #b72929 !important;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.accordion-body {
+    font-size: 16px;
+    margin-bottom: 5px;
+    background-color: rgb(245, 215, 176) !important;
+}
+
+@media (max-width: 1200px) {
+
+    .box {
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        margin: 5% auto;
+    }
+
+    .box1,
+    .box2 {
+        width: 100%;
+    }
+
+    .box1 {
+        padding:15px;
+    }
+    img{
+        width: 100%;
+    }
+
+    .tittle {
+        margin: 30px 0;
+        font-weight: 800;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .accordion-item {
+         width: 100%;
+    }
+
+    .accordion-body {
+        font-size: 1.5rem;
+    }
+    .accordion-button {
+        font-size: 1.5rem !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tittle {
+        margin: 30px 0;
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+
+    .accordion-button {
+        font-size: 1rem !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+        font-size: 1rem;
+    }
+
+    .accordion-body {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .tittle{
+        font-size: 1rem;
+    }
+}

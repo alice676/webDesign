@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品選擇 - 區塊置換</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="content">
+        <div id="up"></div>
+        <div class="imgs">
+            <img src="./img/i11-black.png" id="img">
+        </div>
+        <div class="down">
+            <div class="options">
+                <div class="option black" id="black"></div>
+                <div class="option white" id="white"></div>
+                <div class="option red" id="red"></div>
+                <div class="option yellow" id="yellow"></div>
+            </div>
+            <div id="text">黑色</div>
+        </div>
+    </div>
+</body>
+<script>
+    var color_b = document.getElementById('black');
+    var color_w = document.getElementById('white');
+    var color_r = document.getElementById('red');
+    var color_y = document.getElementById('yellow');
+    var img = document.getElementById("img");
+    var text = document.getElementById("text");
+    var up = document.getElementById("up");
+
+    var imgs = ["./img/i11-black.png", "./img/i11-silver.png", "./img/i11-red.png", "./img/i11-yellow.png"];
+    var texts = ["黑色", "白色", "紅色", "黃色"];
+
+    // function setting(imgIndex, textIndex, bgcolor) {
+    function setting(Index ,bgcolor) {
+        // img.src = imgs[imgIndex];
+        // text.innerText = texts[textIndex];
+        img.src = imgs[Index];
+        text.innerText = texts[Index];
+        up.style.backgroundColor = bgcolor;
+    }
+
+    color_b.addEventListener("click",function(e){
+        // setting(0,0,"black");
+        setting(0,"black");
+    })
+
+    color_w.addEventListener("click",function(e){
+        setting(1,"rgb(252 249 243)");
+    })
+
+    color_r.addEventListener("click",function(e){
+        setting(2,"rgb(179 4 40)");
+    })
+
+    color_y.addEventListener("click",function(e){
+        setting(3,"rgb(253 227 126)");
+    })
+
+
+    // color_b.addEventListener("click", function () {
+    //     img.src = imgs[0];
+    //     text.innerText = texts[0];
+    //     up.style.backgroundColor = "black";
+    // })
+
+    // color_w.addEventListener("click", function () {
+    //     img.src = imgs[1];
+    //     text.innerText = texts[1];
+    //     up.style.backgroundColor = "rgb(252 249 243)";
+    // })
+
+    // color_r.addEventListener("click", function () {
+    //     img.src = imgs[2];
+    //     text.innerText = texts[2];
+    //     up.style.backgroundColor = "rgb(179 4 40)";
+    // })
+
+    // color_y.addEventListener("click", function () {
+    //     img.src = imgs[3];
+    //     text.innerText = texts[3];
+    //     up.style.backgroundColor = "rgb(253 227 126)";
+    // })
+</script>
+
+</html>

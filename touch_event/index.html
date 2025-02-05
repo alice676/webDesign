@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>觸控事件(手機滑動觸發)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            /* border: 1px solid #000; */
+            background-color: blanchedalmond;
+        }
+        #content{
+            font-size: 2rem;
+            color: blue;
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+</body>
+<script>
+    let box = document.querySelector('body') // 監聽對象
+    let text = document.getElementById('content');
+    
+    // 觸摸開始 X、Y 軸位置
+    let startDistanceX = ''
+    let startDistanceY = ''
+
+    // 觸摸结束 X、Y 軸位置
+    let endDistanceX = ''
+    let endDistanceY = ''
+
+    // 觸摸移動 X、Y 軸距離
+    let moveDistanceX = ''
+    let moveDistanceY = ''
+
+    // 觸摸開始，手指點擊螢幕開始觸發
+    box.addEventListener("touchstart", (e) => {
+        let e_t = e.touches;
+        if(e_t){
+            // screenX：觸摸點在螢幕中的x座標
+            startDistanceX = e_t[0].screenX
+            startDistanceY = e_t[0].screenY
+        }else{
+            alert('touchstart error!!')
+        }
+    })
+    // 觸摸結束，手指離開螢幕時觸發
+    box.addEventListener("touchend", (e) => {
+        let e_c = e.changedTouches;
+        if(e_c){
+            endDistanceX = e_c[0].screenX
+            endDistanceY = e_c[0].screenY
+        }
+
+        if(startDistanceX !='' && startDistanceY !='' && endDistanceX !='' && endDistanceY !=''){
+
+            moveDistanceX = startDistanceX - endDistanceX
+            moveDistanceY = startDistanceY - endDistanceY
+            console.log(moveDistanceX, moveDistanceY)
+
+            // 判斷X軸移動的距離是否大於Y軸移動的距離
+            if (Math.abs(moveDistanceX) > Math.abs(moveDistanceY)) {
+                // 左右
+                // 三元運算值
+                // alert(moveDistanceX > 0 ? '左' : '右')
+
+                if(moveDistanceX > 0){
+                    console.log('左')
+                    text.innerText = '左';
+                }
+                else{
+                    console.log('右')
+                    text.innerText = '右';
+                }
+            } else {
+                // 上下
+                // alert(moveDistanceY > 0 ? '上' : '下')
+                if(moveDistanceY > 0){
+                    console.log('上')
+                    text.innerText = '上';
+                }
+                else{
+                    console.log('下')
+                    text.innerText = '下';
+                }
+            }
+        }
+        else{
+            alert('error!!')
+        }
+    })
+</script>
+
+</html>

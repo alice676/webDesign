@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.page.active {
+    display: flex;
+}
+
+.page h1 {
+    font-size: 10rem;
+    color: #ffffff;
+}
+
+#page1 {
+    background-color: #41a9ea;
+}
+
+#page2 {
+    background-color: #f56fae;
+}
+
+#page3 {
+    background-color: #c16bff;
+}
+
+.pic{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.float {
+    animation: float2 3s ease-in-out infinite;
+}
+
+img{
+    width: 70%;
+}
+
+/* 跑馬燈 */
+#marquee {
+    background-color: #f3bc08;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+}
+
+#marquee span {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 1.2rem;
+    animation: marquee 5s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .page h1 {
+        font-size: 5rem;
+    }
+}

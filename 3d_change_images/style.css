@@ -1,0 +1,22 @@
+.box{
+    position: relative;
+}
+.img-wrapper{
+    width: 1280px;
+    position: absolute;
+}
+
+#control {
+    width: 1280px;
+    overflow: auto;
+    position: absolute;
+    top: 80%;
+}
+
+#content{
+    width:5000px;
+}
+
+img{
+    width: 100%;
+}

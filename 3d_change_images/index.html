@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>類3D換圖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="img-wrapper">
+            <img id="change_image" src="./img/c_aircross_0-1620x1000.png" alt="">
+        </div>
+    </div>
+    <div id="control" onscroll="keepUpTheScroll()">
+        <div id="content"><br></div>
+    </div>
+    <p id="show"></p>
+    <script>
+        function keepUpTheScroll() {
+            var div = document.getElementById('control');
+            var content = document.getElementById('content');
+            var change_image = document.getElementById('change_image');
+            var img = document.getElementsByClassName('img-wrapper');
+            var width_size = content.offsetWidth - div.offsetWidth; // 總長度
+            var x = div.scrollLeft; // 現在位移位置
+            var page_total = 38; // 總照片張數
+            var width_size = width_size / page_total; // 斷點位置
+            var now_page = Math.round(x / width_size); // 現在斷點處
+            // console.log("now_page="+now_page);
+            document.getElementById("show").innerHTML = "Horizontally: " + x + "px"
+
+            for (var i = 0; i <= page_total; i++) {
+                if (now_page == i) {
+                    change_image.src = "./img/c_aircross_" + i + "-1620x1000.png";
+                }
+            }
+
+            // if(now_page==1){
+            //     change_image.src = "./img/c_aircross_1-1620x1000.png";
+            // }else if(now_page==2){
+            //     change_image.src = "./img/c_aircross_2-1620x1000.png";
+            // }else if(now_page==3){
+            //     change_image.src = "./img/c_aircross_3-1620x1000.png";
+            // }else if(now_page==4){
+            //     change_image.src = "./img/c_aircross_4-1620x1000.png";
+            // }else if(now_page==5){
+            //     change_image.src = "./img/c_aircross_5-1620x1000.png";
+            // }else if(now_page==6){
+            //     change_image.src = "./img/c_aircross_6-1620x1000.png";
+            // }else if(now_page==7){
+            //     change_image.src = "./img/c_aircross_7-1620x1000.png";
+            // }else if(now_page==8){
+            //     change_image.src = "./img/c_aircross_8-1620x1000.png";
+            // }else if(now_page==9){
+            //     change_image.src = "./img/c_aircross_9-1620x1000.png";
+            // }else if(now_page==10){
+            //     change_image.src = "./img/c_aircross_10-1620x1000.png";
+            // }
+        }
+    </script>
+</body>
+
+</html>
